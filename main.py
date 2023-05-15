@@ -16,7 +16,7 @@ app = FastAPI()
 
 @app.get('/')
 async def root():
-    return {'message': 'Bienvenido a la API de películas'}
+    return {'message': 'Bienvenido a la API de películas, por Carlos Sanchez'}
 
 
 @app.get('/peliculas_mes/{mes}')
@@ -70,39 +70,31 @@ async def peliculas_dia(dia):
     return {'dia': dia, 'cantidad': respuesta}
     
 
-
 @app.get('/franquicia/{franquicia}')
 async def franquicia(franquicia):
-    # Filtramos las películas de la franquicia especificada
     franquicia_df = df[df['collection_name'].str.contains(franquicia, na=False)]
 
-    # Obtenemos la cantidad de películas en la franquicia
     cantidad = len(franquicia_df)
 
-    # Calculamos la ganancia total y promedio de la franquicia
     ganancia_total = franquicia_df['revenue'].sum()
     ganancia_promedio = franquicia_df['revenue'].mean()
 
-    # Retornamos la información de la franquicia
     return {'franquicia': franquicia, 'cantidad': cantidad, 'ganancia_total': ganancia_total, 'ganancia_promedio': ganancia_promedio}
 
 
 @app.get('/peliculas_pais/{pais}')
 async def peliculas_pais(pais):
-    
     df = pd.read_csv('Dataset/df.csv')
-    # Eliminamos todas las filas del df que contienen valores faltantes o (NaN) en la columna 'production_countries_names'.
+
     df = df.dropna(subset=['production_countries_names'])
-    # Elimina las filas duplicadas del df
     df = df.drop_duplicates()
-    
-    num_movies = 0
-   
-    for countries in df['production_countries_names']:      
+
+    num_peliculas = 0
+    for countries in df['production_countries_names']:
         if pais in countries:
-                num_movies += 1
-             
-    return num_movies
+            num_peliculas += 1
+
+    return {'pais': pais, 'cantidad': num_peliculas}
 
 
 @app.get('/productoras/{productora}')
@@ -138,23 +130,10 @@ async def retorno(pelicula):
 @app.get('/recomendacion/{titulo}')
 async def recomendacion(titulo):
     generodf = df['genre_names'].str.get_dummies('|')
-    # Establecemos la cantidad de recomendaciones a devolver.
-    k = 10  
-    # Inicializamos un modelo KNN con un número de vecinos iguales a k+1
-    knn = NearestNeighbors(n_neighbors=k+1, algorithm='auto') 
-    # Entrenamos el modelo KNN utilizando el DataFrame de géneros
+    k = 10
+    knn = NearestNeighbors(n_neighbors=k+1, algorithm='auto')
     knn.fit(generodf)
-    # Indices de las películas más similares al títle utilizando el modelo KNN.
     indices = knn.kneighbors(generodf.loc[df['title'] == titulo])[1].flatten()
-    # Guardamos los títulos de las películas recomendadas en una lista.
     recomendadas = list(df.iloc[indices]['title'])
-    recomendadas = sorted(recomendadas, key=lambda x: df.loc[df['title'] == x]['vote_average'].values[0], reverse=True)
-    # Para Almacenar as peliculas mas recomendadas
-    recomendaciones = []
-    # Ciclo por para iterar por las primeras 5 peliculas
-    for pelicula in recomendadas[:5]: 
-        score = df.loc[df['title'] == pelicula]['vote_average'].values[0]
-        genres = df.loc[df['title'] == pelicula]['genre_names'].values[0]
-        gen_str = ', '.join(genres).replace(',', '')
-        recomendaciones.append(f"-{pelicula}  | Generos: {gen_str} | Puntaje: {score} |")
-    return recomendaciones
+    recomendadas = sorted(recomendadas, key=lambda x: df.loc[df['title'] == x]['vote_average'].values[0], reverse=True)[:5]
+    return {'recomendacion': recomendadas}
