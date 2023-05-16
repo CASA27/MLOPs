@@ -83,7 +83,6 @@ async def retorno(pelicula):
 
 5. Creacion de una cuenta en [Render](https://render.com)
 6. Creacion de la interfaz con los parametros indicados 
-7. Se valida la url generada en Render y se realizan las respectivas consultas
 
 <hr>
 
