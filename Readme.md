@@ -6,7 +6,7 @@
 
 
 #### Problemática:
-- **Elaboracion** de 6 funciones con objetivos especificos y creacion de un modelo de Machine Learnig que hace una recomendacion de las 5 peliculas mas similares, todo este desarrollo, desde extraccion de los datos hasta la creacion del modelo (**Data engineering**), proyecto solicitado por nuestro empleador que provee servicios de agregación de plataformas de streaming, utilizamos un [dataset](https://github.com/CASA27/MLOPs) para realizar las **transformaciones requeridas** y posteriormente **poner a disposición los datos** mediante la elaboración y ejecución de una **API** puesta en produccion en la plataforma de alojamiento web para aplicaciones llamada Render [API](https://proyecto-vesv.onrender.com)
+- **Elaboracion** de 6 funciones con objetivos especificos y creacion de un modelo de Machine Learnig que hace una recomendacion de las 5 peliculas mas similares, todo este desarrollo, desde extraccion de los datos hasta la creacion del modelo (**Data engineering**), proyecto solicitado por nuestro empleador que provee servicios de agregación de plataformas de streaming, utilizamos un [dataset](https://github.com/CASA27/MLOPs/tree/main/Dataset) para realizar las **transformaciones requeridas** y posteriormente **poner a disposición los datos** mediante la elaboración y ejecución de una **API** puesta en produccion en la plataforma de alojamiento web para aplicaciones llamada Render [API](https://proyecto-vesv.onrender.com)
 
 #### Rol del desarrollador:
 - Data engineer
@@ -38,7 +38,7 @@
 
 9.  Exportar CSV final (df) con todas las transformaciones
 
-##### *Nota: La extracción de datos así como las respectivas transformaciones pueden verse desarrolladas en el archivo [ETL.ipynb]( https://github.com/amysler/Proyecto_individual_data_engineer-Henry_bootcamp-DTS06/blob/main/ETL.ipynb)*
+##### *Nota: La extracción de datos así como las respectivas transformaciones pueden verse desarrolladas en el archivo [ETL.ipynb]( https://github.com/CASA27/MLOPs/blob/main/ETL.ipynb)*
   
   <hr> 
 
@@ -66,12 +66,12 @@
 
 Se desarrolla el código de las funciones que responden a las consultas solicitadas por el cliente
 
-##### *Nota: El desarrolo de las consultas se encuentra alojado en el archivo [main.py](https://github.com/CASA27/MLOPs/blob/main/main.py)*
+##### *Nota: El desarrolo de las consultas se encuentra alojado en el archivo [desarrollo_de_funciones.ipynb](https://github.com/CASA27/MLOPs/blob/main/desarrollo_de_funciones.ipynb)*
 
 <hr>
 
 ### Proceso de puesta a disposición los datos utilizando FastAPI (framework que permite construir APIs con Python) y realizar el deploy: 
-1. Generación de archivo [main.py](https://github.com/amysler/Proyecto_individual_data_engineer-Henry_bootcamp-DTS06/blob/main/main.py) (donde desarrollar el script) y otro [requirements.txt](https://github.com/amysler/Proyecto_individual_data_engineer-Henry_bootcamp-DTS06/blob/main/requirements.txt) (donde alojar los requerimientos para la API)
+1. Generación de archivo [main.py](https://github.com/CASA27/MLOPs/blob/main/main.py) (donde desarrollar el script) y otro [requirements.txt](https://github.com/CASA27/MLOPs/blob/main/requirements.txt) (donde alojar los requerimientos para la API)
 2. Importación de las librerías a utilizar
 3. Declaración de la creación de la API 
 4. Desarrollo de las consultas con formato:
