@@ -6,7 +6,7 @@
 
 
 #### Problemática:
-- **Elaboracion** de 6 funciones con objetivos especificos y creacion de un modelo de Machine Learnig que hace una recomendacion de las 5 peliculas mas similares, todo este desarrollo, desde extraccion de los datos hasta la creacion del modelo (**Data engineering**), proyecto solicitado por nuestro empleador que provee servicios de agregación de plataformas de streaming, utilizamos un [dataset](https://github.com/CASA27/MLOPs/tree/main/Dataset) para realizar las **transformaciones requeridas** y posteriormente **poner a disposición los datos** mediante la elaboración y ejecución de una **API** puesta en produccion en la plataforma de alojamiento web para aplicaciones llamada Render [API](https://proyecto-vesv.onrender.com)
+- **Elaboracion** de 6 funciones con objetivos especificos y creacion de un modelo de Machine Learning que hace una recomendacion de las 5 peliculas mas similares, todo este desarrollo, desde extraccion de los datos hasta la creacion del modelo (**Data engineering**), proyecto solicitado por nuestro empleador que provee servicios de agregación de plataformas de streaming, utilizamos un dataset llamado movies_dataset.csv para realizar las **transformaciones requeridas** 
 
 #### Rol del desarrollador:
 - Data engineer
@@ -18,9 +18,9 @@
 `EXTRACCIÓN DE DATOS`
 
 
-1. Importación de la librería pandas para el manejo de los dataframes
-2. Ingesta de datos (Archivos .csv provisto por nuestro empleador)
-3. Análisis exploratorio del dataset para conocer sus características principales
++ Importación de la librería pandas para el manejo de los dataframes
++ Ingesta de datos (archivos .csv provisto por nuestro empleador)
++ Análisis exploratorio del dataset para conocer sus características principales
    
 `TRANSFORMACIONES`
 
@@ -36,7 +36,7 @@
 
 + Eliminar las columnas que no serán utilizadas, **`video`**,**`imdb_id`**,**`adult`**,**`original_title`**,**`vote_count`**,**`poster_path`** y **`homepage`**.
 
-9.  Exportar CSV final (df) con todas las transformaciones
++  Exportar CSV final (df) con todas las transformaciones
 
 ##### *Nota: La extracción de datos así como las respectivas transformaciones pueden verse desarrolladas en el archivo [ETL.ipynb]( https://github.com/CASA27/MLOPs/blob/main/ETL.ipynb)*
   
@@ -70,7 +70,7 @@ Se desarrolla el código de las funciones que responden a las consultas solicita
 
 <hr>
 
-### Proceso de puesta a disposición los datos utilizando FastAPI (framework que permite construir APIs con Python) y realizar el deploy: 
+### Proceso de puesta a disposición de los datos utilizando FastAPI (framework que permite construir APIs con Python) y realizar el deploy: 
 1. Generación de archivo [main.py](https://github.com/CASA27/MLOPs/blob/main/main.py) (donde desarrollar el script) y otro [requirements.txt](https://github.com/CASA27/MLOPs/blob/main/requirements.txt) (donde alojar los requerimientos para la API)
 2. Importación de las librerías a utilizar
 3. Declaración de la creación de la API 
